@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirBNB.Api", "AirBNB.Api\AirBNB.Api.csproj", "{C94C7340-5100-4864-A231-E2A0CAE189AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirBNB.Application", "AirBNB.Application\AirBNB.Application.csproj", "{B9987B14-F440-4517-AFFF-80F22FE26E87}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirBNB.Infrastructure", "AirBNB.Infrastructure\AirBNB.Infrastructure.csproj", "{FF01D930-B094-43B1-BED5-B1330563DD2E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirBNB.Contracts", "AirBNB.Contracts\AirBNB.Contracts.csproj", "{C88190E8-3E66-4DBF-B638-3B7D044439F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirBNB.Domain", "AirBNB.Domain\AirBNB.Domain.csproj", "{02AFF428-2591-47E3-A827-722DD7EB84C4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C94C7340-5100-4864-A231-E2A0CAE189AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C94C7340-5100-4864-A231-E2A0CAE189AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C94C7340-5100-4864-A231-E2A0CAE189AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C94C7340-5100-4864-A231-E2A0CAE189AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9987B14-F440-4517-AFFF-80F22FE26E87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9987B14-F440-4517-AFFF-80F22FE26E87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9987B14-F440-4517-AFFF-80F22FE26E87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9987B14-F440-4517-AFFF-80F22FE26E87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF01D930-B094-43B1-BED5-B1330563DD2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF01D930-B094-43B1-BED5-B1330563DD2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF01D930-B094-43B1-BED5-B1330563DD2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF01D930-B094-43B1-BED5-B1330563DD2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C88190E8-3E66-4DBF-B638-3B7D044439F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C88190E8-3E66-4DBF-B638-3B7D044439F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C88190E8-3E66-4DBF-B638-3B7D044439F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C88190E8-3E66-4DBF-B638-3B7D044439F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02AFF428-2591-47E3-A827-722DD7EB84C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02AFF428-2591-47E3-A827-722DD7EB84C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02AFF428-2591-47E3-A827-722DD7EB84C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02AFF428-2591-47E3-A827-722DD7EB84C4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

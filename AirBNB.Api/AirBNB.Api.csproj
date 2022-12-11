@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>e7ece3e4-a5d1-49e1-9746-6c37d7fc9493</UserSecretsId>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Mapster" Version="7.3.0" />
+    <PackageReference Include="Mapster.DependencyInjection" Version="1.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AirBNB.Contracts\AirBNB.Contracts.csproj" />
+    <ProjectReference Include="..\AirBNB.Application\AirBNB.Application.csproj" />
+    <ProjectReference Include="..\AirBNB.Infrastructure\AirBNB.Infrastructure.csproj" />
+  </ItemGroup>
+</Project>
