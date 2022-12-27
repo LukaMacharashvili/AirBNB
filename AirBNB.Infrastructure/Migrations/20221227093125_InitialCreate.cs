@@ -26,8 +26,8 @@ namespace AirBNB.Infrastructure.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Password = table.Column<string>(type: "varchar(200)", maxLength: 200, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    CreatedDateTime = table.Column<DateTime>(type: "date", nullable: false),
-                    UpdatedDateTime = table.Column<DateTime>(type: "date", nullable: false)
+                    CreatedDateTime = table.Column<DateTime>(type: "datetime", nullable: false),
+                    UpdatedDateTime = table.Column<DateTime>(type: "datetime", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -45,10 +45,10 @@ namespace AirBNB.Infrastructure.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     ImageUrl = table.Column<string>(type: "varchar(2048)", maxLength: 2048, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
+                    CreatedDateTime = table.Column<DateTime>(type: "datetime", nullable: false),
+                    UpdatedDateTime = table.Column<DateTime>(type: "datetime", nullable: false),
                     UserId = table.Column<string>(type: "varchar(36)", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    CreatedDateTime = table.Column<DateTime>(type: "date", nullable: false),
-                    UpdatedDateTime = table.Column<DateTime>(type: "date", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4")
                 },
                 constraints: table =>
                 {
@@ -72,10 +72,10 @@ namespace AirBNB.Infrastructure.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     ImageUrl = table.Column<string>(type: "varchar(2048)", maxLength: 2048, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
+                    CreatedDateTime = table.Column<DateTime>(type: "datetime", nullable: false),
+                    UpdatedDateTime = table.Column<DateTime>(type: "datetime", nullable: false),
                     HotelId = table.Column<string>(type: "varchar(36)", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    CreatedDateTime = table.Column<DateTime>(type: "date", nullable: false),
-                    UpdatedDateTime = table.Column<DateTime>(type: "date", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4")
                 },
                 constraints: table =>
                 {
@@ -95,8 +95,7 @@ namespace AirBNB.Infrastructure.Migrations
                 {
                     Id = table.Column<string>(type: "varchar(36)", maxLength: 36, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    StartDate = table.Column<DateTime>(type: "date", nullable: false),
-                    EndDate = table.Column<DateTime>(type: "date", nullable: false),
+                    Date = table.Column<DateOnly>(type: "date", nullable: false),
                     RoomId = table.Column<string>(type: "varchar(36)", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4")
                 },

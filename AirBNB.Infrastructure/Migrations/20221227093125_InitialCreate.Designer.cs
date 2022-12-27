@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AirBNB.Infrastructure.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20221210180744_InitialCreate")]
+    [Migration("20221227093125_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,15 +27,12 @@ namespace AirBNB.Infrastructure.Migrations
                         .HasMaxLength(36)
                         .HasColumnType("varchar(36)");
 
-                    b.Property<DateTime>("EndDate")
+                    b.Property<DateOnly>("Date")
                         .HasColumnType("date");
 
                     b.Property<string>("RoomId")
                         .IsRequired()
                         .HasColumnType("varchar(36)");
-
-                    b.Property<DateTime>("StartDate")
-                        .HasColumnType("date");
 
                     b.HasKey("Id");
 
@@ -51,7 +48,7 @@ namespace AirBNB.Infrastructure.Migrations
                         .HasColumnType("varchar(36)");
 
                     b.Property<DateTime>("CreatedDateTime")
-                        .HasColumnType("date");
+                        .HasColumnType("datetime");
 
                     b.Property<string>("ImageUrl")
                         .IsRequired()
@@ -64,7 +61,7 @@ namespace AirBNB.Infrastructure.Migrations
                         .HasColumnType("varchar(200)");
 
                     b.Property<DateTime>("UpdatedDateTime")
-                        .HasColumnType("date");
+                        .HasColumnType("datetime");
 
                     b.Property<string>("UserId")
                         .IsRequired()
@@ -84,7 +81,7 @@ namespace AirBNB.Infrastructure.Migrations
                         .HasColumnType("varchar(36)");
 
                     b.Property<DateTime>("CreatedDateTime")
-                        .HasColumnType("date");
+                        .HasColumnType("datetime");
 
                     b.Property<string>("HotelId")
                         .IsRequired()
@@ -101,7 +98,7 @@ namespace AirBNB.Infrastructure.Migrations
                         .HasColumnType("varchar(200)");
 
                     b.Property<DateTime>("UpdatedDateTime")
-                        .HasColumnType("date");
+                        .HasColumnType("datetime");
 
                     b.HasKey("Id");
 
@@ -117,7 +114,7 @@ namespace AirBNB.Infrastructure.Migrations
                         .HasColumnType("varchar(36)");
 
                     b.Property<DateTime>("CreatedDateTime")
-                        .HasColumnType("date");
+                        .HasColumnType("datetime");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -140,7 +137,7 @@ namespace AirBNB.Infrastructure.Migrations
                         .HasColumnType("varchar(200)");
 
                     b.Property<DateTime>("UpdatedDateTime")
-                        .HasColumnType("date");
+                        .HasColumnType("datetime");
 
                     b.HasKey("Id");
 
@@ -149,29 +146,50 @@ namespace AirBNB.Infrastructure.Migrations
 
             modelBuilder.Entity("AirBNB.Domain.BookDates.BookDate", b =>
                 {
-                    b.HasOne("AirBNB.Domain.Rooms.Room", null)
-                        .WithMany()
+                    b.HasOne("AirBNB.Domain.Rooms.Room", "Room")
+                        .WithMany("BookDates")
                         .HasForeignKey("RoomId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Room");
                 });
 
             modelBuilder.Entity("AirBNB.Domain.Hotels.Hotel", b =>
                 {
-                    b.HasOne("AirBNB.Domain.Users.User", null)
-                        .WithMany()
+                    b.HasOne("AirBNB.Domain.Users.User", "User")
+                        .WithMany("Hotels")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("AirBNB.Domain.Rooms.Room", b =>
                 {
-                    b.HasOne("AirBNB.Domain.Hotels.Hotel", null)
-                        .WithMany()
+                    b.HasOne("AirBNB.Domain.Hotels.Hotel", "Hotel")
+                        .WithMany("Rooms")
                         .HasForeignKey("HotelId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Hotel");
+                });
+
+            modelBuilder.Entity("AirBNB.Domain.Hotels.Hotel", b =>
+                {
+                    b.Navigation("Rooms");
+                });
+
+            modelBuilder.Entity("AirBNB.Domain.Rooms.Room", b =>
+                {
+                    b.Navigation("BookDates");
+                });
+
+            modelBuilder.Entity("AirBNB.Domain.Users.User", b =>
+                {
+                    b.Navigation("Hotels");
                 });
 #pragma warning restore 612, 618
         }
