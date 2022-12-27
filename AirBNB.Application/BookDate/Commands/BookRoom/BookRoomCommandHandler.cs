@@ -18,14 +18,22 @@ public class BookRoomCommandHandler :
 
     public async Task<ErrorOr<BookDateResult>> Handle(BookRoomCommand command, CancellationToken cancellationToken)
     {
-        var bookDate = BookDate.Create(
-            command.RoomId,
-            command.StartDate,
-            command.EndDate);
+        List<BookDate> bookDates = new List<BookDate>();
+        var startDate = command.StartDate;
 
-        _bookDateRepository.Add(bookDate);
+        while (startDate <= command.EndDate)
+        {
+            var bookDate = BookDate.Create(
+                command.RoomId,
+                startDate);
+
+            bookDates.Add(bookDate);
+            startDate = startDate.AddDays(1);
+        }
+
+        _bookDateRepository.Add(bookDates);
         _bookDateRepository.Save();
 
-        return new BookDateResult(bookDate);
+        return new BookDateResult(command.StartDate, command.EndDate, command.RoomId);
     }
 }

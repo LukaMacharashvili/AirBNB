@@ -1,4 +1,5 @@
 using AirBNB.Domain.Hotels;
+using AirBNB.Domain.Rooms;
 using AirBNB.Domain.Users;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -29,12 +30,18 @@ class HotelEntityTypeConfiguration
             .HasColumnType("varchar")
             .HasMaxLength(2048);
 
-        hotelConfiguration.HasOne<User>().WithMany().HasForeignKey(x => x.UserId);
-
         hotelConfiguration.Property(u => u.CreatedDateTime)
-            .HasColumnType("date");
+            .HasColumnType("datetime");
 
         hotelConfiguration.Property(u => u.UpdatedDateTime)
-            .HasColumnType("date");
+            .HasColumnType("datetime");
+
+        hotelConfiguration.HasMany<Room>(h => h.Rooms)
+            .WithOne(r => r.Hotel)
+            .HasForeignKey(r => r.HotelId);
+
+        hotelConfiguration.HasOne<User>(u => u.User)
+            .WithMany(u => u.Hotels)
+            .HasForeignKey(u => u.UserId);
     }
 }

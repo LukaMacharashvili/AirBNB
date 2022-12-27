@@ -7,6 +7,7 @@ public interface IBookDateRepository
     void Save();
     List<BookDate>? Load(string roomId);
     BookDate? Fetch(string id);
-    void Add(BookDate bookDate);
-    void Delete(BookDate bookDate);
+    void Add(List<BookDate> bookDates);
+    void Delete(List<BookDate> bookDates);
+    List<BookDate>? SearchByDateRange(string roomId, DateOnly startDate, DateOnly endDate);
 }

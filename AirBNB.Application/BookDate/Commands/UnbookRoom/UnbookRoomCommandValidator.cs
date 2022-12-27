@@ -6,6 +6,8 @@ public class UnbookRoomCommandValidator : AbstractValidator<UnbookRoomCommand>
 {
     public UnbookRoomCommandValidator()
     {
-        RuleFor(x => x.Id).NotEmpty();
+        RuleFor(x => x.StartDate).NotEmpty();
+        RuleFor(x => x.EndDate).NotEmpty();
+        RuleFor(x => x.RoomId).NotEmpty();
     }
 }

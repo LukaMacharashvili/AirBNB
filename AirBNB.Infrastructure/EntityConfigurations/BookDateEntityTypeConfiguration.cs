@@ -20,12 +20,11 @@ class BookDateEntityTypeConfiguration
             .HasMaxLength(36)
             .IsRequired();
 
-        bookDateConfiguration.Property(u => u.StartDate)
+        bookDateConfiguration.Property(u => u.Date)
             .HasColumnType("date");
 
-        bookDateConfiguration.Property(u => u.EndDate)
-            .HasColumnType("date");
-
-        bookDateConfiguration.HasOne<Room>().WithMany().HasForeignKey(x => x.RoomId);
+        bookDateConfiguration.HasOne<Room>(s => s.Room)
+            .WithMany(r => r.BookDates)
+            .HasForeignKey(s => s.RoomId);
     }
 }

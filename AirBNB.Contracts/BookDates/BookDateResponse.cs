@@ -1,7 +1,6 @@
 namespace AirBNB.Contracts.BookDates;
 
 public record BookDateResponse(
-    Guid Id,
-    DateTime StartDate,
-    DateTime EndDate,
+    DateOnly StartDate,
+    DateOnly EndDate,
     string RoomId);

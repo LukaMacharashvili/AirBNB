@@ -4,4 +4,7 @@ using MediatR;
 
 namespace AirBNB.Application.BookDates.Commands.UnbookRoom;
 
-public record UnbookRoomCommand(string Id) : IRequest<ErrorOr<BookDateResult>>;
+public record UnbookRoomCommand(
+    DateOnly StartDate,
+    DateOnly EndDate,
+    string RoomId) : IRequest<ErrorOr<BookDateResult>>;

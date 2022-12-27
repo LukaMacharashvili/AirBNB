@@ -9,8 +9,7 @@ public class BookDateMappingConfig : IRegister
 {
     public void Register(TypeAdapterConfig config)
     {
-        config.NewConfig<BookDateResult, BookDateResponse>()
-            .Map(dest => dest, src => src.BookDate);
+        config.NewConfig<BookDateResult, BookDateResponse>();
 
         config.NewConfig<(BookRoomRequest Request, string RoomId), BookRoomCommand>()
             .Map(dest => dest.RoomId, src => src.RoomId)

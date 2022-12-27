@@ -1,3 +1,5 @@
+using AirBNB.Domain.Hotels;
+
 namespace AirBNB.Domain.Users;
 
 public sealed class User
@@ -9,8 +11,10 @@ public sealed class User
     public string Password { get; private set; }
     public DateTime CreatedDateTime { get; private set; }
     public DateTime UpdatedDateTime { get; private set; }
-    private User() { }
 
+    public List<Hotel>? Hotels { get; set; }
+
+    private User() { }
     public static User Create(
         string firstName,
         string lastName,

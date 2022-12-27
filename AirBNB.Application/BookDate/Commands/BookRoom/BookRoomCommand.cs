@@ -5,6 +5,6 @@ using MediatR;
 namespace AirBNB.Application.BookDates.Commands.BookRoom;
 
 public record BookRoomCommand(
-    DateTime StartDate,
-    DateTime EndDate,
+    DateOnly StartDate,
+    DateOnly EndDate,
     string RoomId) : IRequest<ErrorOr<BookDateResult>>;

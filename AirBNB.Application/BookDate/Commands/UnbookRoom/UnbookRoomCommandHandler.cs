@@ -18,12 +18,12 @@ public class UnbookRoomCommandHandler :
 
     public async Task<ErrorOr<BookDateResult>> Handle(UnbookRoomCommand command, CancellationToken cancellationToken)
     {
-        var bookDate = _bookDateRepository.Fetch(command.Id);
-        if (bookDate is null) return Errors.BookDate.BookDateNotFound;
+        var bookDates = _bookDateRepository.SearchByDateRange(command.RoomId, command.StartDate, command.EndDate);
+        if (bookDates is null) return Errors.BookDate.BookDateNotFound;
 
-        _bookDateRepository.Delete((BookDate)bookDate);
+        _bookDateRepository.Delete(bookDates);
         _bookDateRepository.Save();
 
-        return new BookDateResult((BookDate)bookDate);
+        return new BookDateResult(command.StartDate, command.EndDate, command.RoomId);
     }
 }

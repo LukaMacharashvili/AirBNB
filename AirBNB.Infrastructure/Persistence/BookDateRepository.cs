@@ -12,14 +12,14 @@ public sealed class BookDateRepository : IBookDateRepository
         _context = context;
     }
 
-    public void Add(BookDate bookDate)
+    public void Add(List<BookDate> bookDates)
     {
-        _context.BookDate.Add(bookDate);
+        _context.BookDate.AddRange(bookDates);
     }
 
-    public void Delete(BookDate bookDate)
+    public void Delete(List<BookDate> bookDates)
     {
-        _context.BookDate.Remove(bookDate);
+        _context.BookDate.RemoveRange(bookDates);
     }
 
     public BookDate? Fetch(string id)
@@ -30,6 +30,11 @@ public sealed class BookDateRepository : IBookDateRepository
     public List<BookDate>? Load(string roomId)
     {
         return _context.BookDate.Where(x => x.RoomId == roomId).ToList();
+    }
+
+    public List<BookDate>? SearchByDateRange(string roomId, DateOnly startDate, DateOnly endDate)
+    {
+        return _context.BookDate.Where(x => x.RoomId == roomId && x.Date >= startDate && x.Date <= endDate).ToList();
     }
 
     public void Save()
